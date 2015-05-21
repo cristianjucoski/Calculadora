@@ -14,21 +14,23 @@ public class Calculo{
     private int nivel_ruido;
     private int tempo_maximo;
     private int tempoTotalUso;
-    private double subTotal;
-    private double totalGeral;
-    private double subtotal1;
-    private double subtotal2;
-    private double subtotal3;
-    private double subtotal4;
-    private double subtotal5;
-
+    private float subTotal;
+    private float totalGeral;
+    private float subtotal1 = 0;
+    private float subtotal2 = 0;
+    private double subtotal3 = 0;
+    private double subtotal4 = 0; 
+    private double subtotal5 = 0;
     
-
-    public void calculo_totalGeral(){
-        totalGeral = subtotal1 + subtotal2 + subtotal3 + subtotal4 + subtotal5;
+    
+        public void calculo_totalGeral(){
+        totalGeral = (float) (subtotal1 + subtotal2 + subtotal3 + subtotal4 + subtotal5);  
         
     }
-    
+
+          
+               
+
     public void calculo_tempoMaximo(){
     
     tempo_maximo = (int) ((480)/Math.pow(2,((nivel_ruido-85)/5)));
@@ -40,6 +42,8 @@ public class Calculo{
     public void calculo_subtotal(){
       
       subTotal = (float) tempo_uso / tempo_maximo;
+      
+      
         
    }
     
@@ -74,36 +78,35 @@ public class Calculo{
     public void setTempoTotalUso(int tempoTotalUso) {
         this.tempoTotalUso = tempoTotalUso;
     }
-    
-    public double getSubTotal() {
+
+    public float getSubTotal() {
         return subTotal;
     }
 
-    public void setSubTotal(double subTotal) {
+    public void setSubTotal(float subTotal) {
         this.subTotal = subTotal;
     }
-
-    public double getTotalGeral() {
+    public float getTotalGeral() {
         return totalGeral;
     }
 
-    public void setTotalGeral(double totalGeral) {
+    public void setTotalGeral(float totalGeral) {
         this.totalGeral = totalGeral;
     }
 
-    public double getSubtotal1() {
+    public float getSubtotal1() {
         return subtotal1;
     }
 
-    public void setSubtotal1(double subtotal1) {
+    public void setSubtotal1(float subtotal1) {
         this.subtotal1 = subtotal1;
     }
 
-    public double getSubtotal2() {
+    public float getSubtotal2() {
         return subtotal2;
     }
 
-    public void setSubtotal2(double subtotal2) {
+    public void setSubtotal2(float subtotal2) {
         this.subtotal2 = subtotal2;
     }
 
@@ -130,6 +133,5 @@ public class Calculo{
     public void setSubtotal5(double subtotal5) {
         this.subtotal5 = subtotal5;
     }
-    
     
 }

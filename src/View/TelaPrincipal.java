@@ -8,7 +8,6 @@ package View;
 import entity.Calculo;
 import java.awt.Color;
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -27,7 +26,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         getRootPane().setDefaultButton(btnCalcular);
         this.setIconImage(new ImageIcon(getClass().getResource("/View/calculator-icon.png")).getImage());
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("0.00");
+        DecimalFormat TE = new DecimalFormat("0,00");
 
     }
 
@@ -447,32 +447,46 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (TxtTempoExposição1.getText().equals("")){
             TxtTempoExposição1.setText(C.getTempo_uso()+"");
             TxtMaximoPermitido1.setText(C.getTempo_maximo()+"");
+            C.calculo_totalGeral();     
             TxtSubTotal1.setText(df.format(C.getSubTotal()));
+            TxtTotalGeral.setText(df.format(C.getTotalGeral()));
             
         } else {
             if (TxtTempoExposição2.getText().equals("")){
             TxtTempoExposição2.setText(C.getTempo_uso()+"");
             TxtMaximoPermitido2.setText(C.getTempo_maximo()+"");
-            TxtSubTotal2.setText(C.getSubTotal()+"");
-            
+            C.setSubtotal1(Float.parseFloat(TxtSubTotal1.getText()));
+            C.setSubtotal2(Float.parseFloat(TxtSubTotal2.getText()));  
+            C.calculo_totalGeral();
+            TxtSubTotal2.setText(df.format(C.getSubTotal()));
+            TxtTotalGeral.setText(df.format(C.getTotalGeral()));
+
         }else{ 
             if (TxtTempoExposição3.getText().equals("")){
             TxtTempoExposição3.setText(C.getTempo_uso()+"");
             TxtMaximoPermitido3.setText(C.getTempo_maximo()+"");
-            TxtSubTotal3.setText(C.getSubTotal()+"");
+            TxtSubTotal3.setText(df.format(C.getSubTotal()));
+            C.setSubtotal3(C.getSubTotal());
+           // C.calculo_totalGeral();
+            TxtTotalGeral.setText(df.format(C.getTotalGeral()));
             
         }else{
             if (TxtTempoExposição4.getText().equals("")){
             TxtTempoExposição4.setText(C.getTempo_uso()+"");
             TxtMaximoPermitido4.setText(C.getTempo_maximo()+"");
-            TxtSubTotal4.setText(C.getSubTotal()+"");
+            TxtSubTotal4.setText(df.format(C.getSubTotal()));
+            C.setSubtotal4(C.getSubTotal());
+           // C.calculo_totalGeral();
+            TxtTotalGeral.setText(df.format(C.getTotalGeral()));
             
         }else{
             if (TxtTempoExposição5.getText().equals("")){
             TxtTempoExposição5.setText(C.getTempo_uso()+"");
             TxtMaximoPermitido5.setText(C.getTempo_maximo()+"");
-            TxtSubTotal5.setText(C.getSubTotal()+"");
-            
+            TxtSubTotal5.setText(df.format(C.getSubTotal()));
+            C.setSubtotal5(C.getSubTotal());
+           // C.calculo_totalGeral();
+            TxtTotalGeral.setText(df.format(C.getTotalGeral()));
             
             
         }
@@ -564,6 +578,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
   TxtSubTotal3.setText("");
   TxtSubTotal4.setText("");
   TxtSubTotal5.setText("");
+  TxtTotalGeral.setText("");
          
     }//GEN-LAST:event_btnLimpar1ActionPerformed
 
