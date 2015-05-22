@@ -24,7 +24,7 @@ public class Calculo{
     
     
         public void calculo_totalGeral(){
-        totalGeral = (float) (subtotal1 + subtotal2 + subtotal3 + subtotal4 + subtotal5);  
+        totalGeral = (subtotal1 + subtotal2);  
         
     }
 
